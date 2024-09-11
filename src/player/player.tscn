@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://cywfqlkxabd2c"]
+
+[ext_resource type="Texture2D" uid="uid://calyyc6ks3v6l" path="res://src/player/ship.png" id="1_jbcms"]
+[ext_resource type="Script" path="res://src/player/player.gd" id="1_pmiey"]
+[ext_resource type="AudioStream" uid="uid://bo28f65ocfcal" path="res://sounds/player_shoot.wav" id="3_ckoqc"]
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_pmiey")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-16, -12, -16, -10, -18, -10, -18, -8, -20, -8, -20, -6, -22, -6, -22, -4, -24, -4, -24, -2, -26, -2, -26, 26, 24, 26, 24, -2, 22, -2, 22, -4, 20, -4, 20, -6, 18, -6, 18, -8, 16, -8, 16, -10, 14, -10, 14, -12)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_jbcms")
+
+[node name="Shoot" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_ckoqc")

@@ -1,0 +1,64 @@
+[gd_scene load_steps=9 format=3 uid="uid://dhqb3dn31j3ie"]
+
+[ext_resource type="Script" path="res://src/wrecker/wrecker.gd" id="1_4gh0c"]
+[ext_resource type="Texture2D" uid="uid://ip1n8sgj0gu" path="res://src/wrecker/wrecker.png" id="1_raobe"]
+[ext_resource type="Texture2D" uid="uid://ckiwgn2r1iwtl" path="res://src/wrecker/wrecker_explode.png" id="2_qpg6c"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1oyv1"]
+atlas = ExtResource("2_qpg6c")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8wklc"]
+atlas = ExtResource("2_qpg6c")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g01xs"]
+atlas = ExtResource("1_raobe")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mbruu"]
+atlas = ExtResource("1_raobe")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_boilo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1oyv1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8wklc")
+}],
+"loop": false,
+"name": &"explode",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g01xs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mbruu")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 2.0
+}]
+
+[node name="Wrecker" type="Area2D"]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_4gh0c")
+
+[node name="Frame1Collision" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-4, -12, 4, -12, 4, -10, 8, -10, 8, -8, 10, -8, 10, 0, 12, 0, 12, 2, 14, 2, 14, 4, 10, 4, 10, 10, 6, 10, 6, 8, 4, 8, 4, 6, 2, 6, 2, 2, -2, 2, -2, 6, -4, 6, -4, 8, -6, 8, -6, 10, -10, 10, -10, 4, -14, 4, -14, 2, -12, 2, -12, 0, -10, 0, -10, -8, -8, -8, -8, -10, -4, -10)
+
+[node name="Frame2Collision" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(10, 0, 12, 0, 12, 2, 14, 2, 14, 4, 10, 4, 10, 8, 12, 8, 12, 9, 16, 9, 16, 11, 9, 11, 9, 10, 8, 10, 8, 8, 6, 8, 6, 6, 4, 6, 4, 4, 2, 4, 2, 2, 1, 2, 1, 6, 2, 6, 2, 8, 3, 8, 3, 10, 4, 10, 4, 12, 1, 12, 1, 8, -1, 8, -1, 12, -4, 12, -4, 10, -3, 10, -3, 8, -2, 8, -2, 6, -1, 6, -1, 2, -2, 2, -2, 4, -4, 4, -4, 6, -6, 6, -6, 8, -8, 8, -8, 10, -9, 10, -9, 11, -16, 11, -16, 9, -12, 9, -12, 8, -10, 8, -10, 4, -14, 4, -14, 2, -12, 2, -12, 0, -10, 0, -10, -8, -8, -8, -8, -10, -4, -10, -4, -12, 4, -12, 4, -10, 8, -10, 8, -8, 10, -8)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_boilo")
+animation = &"explode"
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
