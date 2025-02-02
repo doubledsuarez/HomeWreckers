@@ -15,7 +15,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 	
 	
@@ -26,7 +26,7 @@ func _physics_process(delta):
 		position.x -= speed * delta
 		
 	# make sure player doesn't leave the screen
-	position.x = clampi(position.x, player_size.x / 2, screen_size.x - player_size.x / 2)
+	position.x = clampf(position.x, player_size.x / 2, screen_size.x - player_size.x / 2)
 	
 	
 func _input(event):
