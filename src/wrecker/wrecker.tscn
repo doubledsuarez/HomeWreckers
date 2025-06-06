@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://dhqb3dn31j3ie"]
 
-[ext_resource type="Script" path="res://src/wrecker/wrecker.gd" id="1_4gh0c"]
+[ext_resource type="Script" uid="uid://bsji32qmp4sfm" path="res://src/wrecker/wrecker.gd" id="1_4gh0c"]
 [ext_resource type="Texture2D" uid="uid://ip1n8sgj0gu" path="res://src/wrecker/wrecker.png" id="1_raobe"]
 [ext_resource type="Texture2D" uid="uid://ckiwgn2r1iwtl" path="res://src/wrecker/wrecker_explode.png" id="2_qpg6c"]
 

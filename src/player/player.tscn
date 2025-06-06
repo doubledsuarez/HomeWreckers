@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cywfqlkxabd2c"]
 
 [ext_resource type="Texture2D" uid="uid://calyyc6ks3v6l" path="res://src/player/ship.png" id="1_jbcms"]
-[ext_resource type="Script" path="res://src/player/player.gd" id="1_pmiey"]
+[ext_resource type="Script" uid="uid://c8a064sw7r1e8" path="res://src/player/player.gd" id="1_pmiey"]
 [ext_resource type="AudioStream" uid="uid://bo28f65ocfcal" path="res://sounds/player_shoot.wav" id="3_ckoqc"]
 
 [node name="Player" type="CharacterBody2D"]
